@@ -1,0 +1,9 @@
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\bin\Debug\Image-Processing-1.exe.config
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\bin\Debug\Image-Processing-1.exe
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\bin\Debug\Image-Processing-1.pdb
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image-Processing-1.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image_Processing_1.Form1.resources
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image_Processing_1.Properties.Resources.resources
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image-Processing-1.csproj.GenerateResource.cache
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image-Processing-1.exe
+C:\Users\PC\Desktop\Image-Processing-2\Image-Processing-1\Image-Processing-1\obj\Debug\Image-Processing-1.pdb
