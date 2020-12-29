@@ -21,6 +21,15 @@ namespace Image_Processing_1
         }
         Bitmap image1, image2;
 
+        int Clamp(int value, int min, int max)
+        {
+            if (value < min)
+                return min;
+            if (value > max)
+                return max;
+            return value;
+        }
+
         private void addNoiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog1 = new OpenFileDialog();
@@ -35,11 +44,13 @@ namespace Image_Processing_1
 
             var rnd = new Random();
 
-            var noisePower = 20;
-
             double R = 0;
             double G = 0;
             double B = 0;
+            int sigma = 20, m = 128;
+            double gaussianNoiseR = rnd.Next(sigma, m);
+            double gaussianNoiseG = rnd.Next(sigma, m);
+            double gaussianNoiseB = rnd.Next(sigma, m);
 
             image2 = new Bitmap(image1.Width, image1.Height);
 
@@ -47,11 +58,13 @@ namespace Image_Processing_1
             {
                 for (int j = 0; j < image1.Height; j++)
                 {
-                    var noise = (rnd.NextDouble() + rnd.NextDouble() + rnd.NextDouble() + rnd.NextDouble() - 2) * noisePower;
-                    R = image1.GetPixel(i, j).R + noise;
-                    G = image1.GetPixel(i, j).G + noise;
-                    B = image1.GetPixel(i, j).B + noise;
-                    Color color = Color.FromArgb((byte)R, (byte)G, (byte)B);
+                    R = image1.GetPixel(i, j).R + gaussianNoiseR * 0.5;
+                    G = image1.GetPixel(i, j).G + gaussianNoiseG * 0.5;
+                    B = image1.GetPixel(i, j).B + gaussianNoiseB * 0.5;
+                    Color color = Color.FromArgb(
+                        Clamp((int)R, 0, 255), 
+                        Clamp((int)G, 0, 255), 
+                        Clamp((int)B, 0, 255));
                     image2.SetPixel(i, j, color);
                 }
             }
@@ -94,18 +107,6 @@ namespace Image_Processing_1
             }
             else { return; }
 
-
-
-
-
-            int Clamp(int value, int min, int max)
-            {
-                if (value < min)
-                    return min;
-                if (value > max)
-                    return max;
-                return value;
-            }
             //MyMedianFilter
             int size = 3;
             Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
@@ -138,7 +139,7 @@ namespace Image_Processing_1
 
 
             //Time start
-
+            
             var watch1 = System.Diagnostics.Stopwatch.StartNew();
             //OpenCV Median filter
             Mat srcImage = Cv2.ImRead(dialog1.FileName);
@@ -173,7 +174,7 @@ namespace Image_Processing_1
 
             pictureBox1.Image = resultImage;
             pictureBox1.Refresh();
-
+            
         }
 
     }
